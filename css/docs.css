@@ -114,6 +114,12 @@ img {
   .switch-page .next {
     right: 0; }
 
+blockquote {
+  padding: 0.2em 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+  background: #f3f3f3; }
+
 h1 {
   border-bottom: 1px solid #efefef;
   margin-bottom: 30px;
