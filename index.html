@@ -16,64 +16,118 @@
     <nav class='menu-nav'>
       
         <ul class='nav'>
-          <span>Introduction</span>
+          <a href='#Introduction'><span>Introduction</span></a>
+          
           <ul class='nav'>
             
           </ul>
         </ul>
       
         <ul class='nav'>
-          <span>Getting Started</span>
+          <a href='#Getting-Started'><span>Getting Started</span></a>
+          
           <ul class='nav'>
             
               <li>
                 <a href='#Installation'>Installation</a>
+
+                
+              </li>
+            
+              <li>
+                <a href='#Structure'>Structure</a>
+
+                
               </li>
             
               <li>
                 <a href='#Basic-Usage'>Basic Usage</a>
+
+                
               </li>
             
           </ul>
         </ul>
       
         <ul class='nav'>
-          <span>GUIDES</span>
+          <a href='#Guides'><span>Guides</span></a>
+          
           <ul class='nav'>
             
               <li>
                 <a href='#Basic-Features'>Basic Features</a>
+
+                
               </li>
             
               <li>
                 <a href='#Checkboxes'>Checkboxes</a>
+
+                
               </li>
             
               <li>
                 <a href='#Redefine-Structure'>Redefine Structure</a>
+
+                
               </li>
             
           </ul>
         </ul>
       
         <ul class='nav'>
-          <span>API</span>
+          <a href='#Examples'><span>Examples</span></a>
+          
           <ul class='nav'>
             
               <li>
-                <a href='#Tree-Options'>Tree Options</a>
+                <a href='#JSON-Viewer'>JSON Viewer</a>
+
+                
+              </li>
+            
+              <li>
+                <a href='#Radio'>Radio</a>
+
+                
+              </li>
+            
+              <li>
+                <a href='#Redefine-Structure-Example'>Redefine Structure Example</a>
+
+                
+              </li>
+            
+          </ul>
+        </ul>
+      
+        <ul class='nav'>
+          <a href='#API'><span>API</span></a>
+          
+          <ul class='nav'>
+            
+              <li>
+                <a href='#Component-Options'>Component Options</a>
+
+                
               </li>
             
               <li>
                 <a href='#Tree-API'>Tree API</a>
+
+                
               </li>
             
               <li>
                 <a href='#Node-API'>Node API</a>
+
+                
               </li>
             
               <li>
                 <a href='#Events'>Events</a>
+
+                
               </li>
             
           </ul>
@@ -93,47 +147,78 @@
 <li>any number of instances per page</li>
 <li>multi selection</li>
 <li>keyboard navigation</li>
-<li>ready for touch devices</li>
 </ul>
-<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>To install <code>liquor-tree</code> using npm:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save liquor-tree</span><br></pre></td></tr></table></figure>
-<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN:"></a>CDN:</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/liquor-tree/dist/liquor-tree.umd.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>It has to be installed to VueJS instance. You no need to care about styles, they are automatically appended to the document.<br>Please take a look at the <a href="https://vuejs.org/v2/guide/components.html" target="_blank" rel="noopener">official documentation</a> to understand how to use VueJS components (if it needs of course).</p>
+<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><ul>
+<li>npm: <code>$ npm install --save liquor-tree</code></li>
+<li>Yarn: <code>$ yarn add liquor-tree</code></li>
+</ul>
+<p>It has to be installed to VueJS instance. Please take a look at the <a href="https://vuejs.org/v2/guide/components.html" target="_blank" rel="noopener">official documentation</a> to understand how to use VueJS components (if it needs of course).</p>
+<p>You no need to care about styles, they are automatically appended to the document.</p>
 <p><strong>When used with a module system there are 3 ways to registrate the component (maybe more… I don’t know).<br>Okay. It’s our ways:</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'Vue'</span></span><br><span class="line"><span class="keyword">import</span> LiquorTree <span class="keyword">from</span> <span class="string">'liquor-tree'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// global registration</span></span><br><span class="line">Vue.use(LiquorTree)</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'Vue'</span></span><br><span class="line"><span class="keyword">import</span> LiquorTree <span class="keyword">from</span> <span class="string">'liquor-tree'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// global registration</span></span><br><span class="line">Vue.component(LiquorTree.name, LiquorTree)</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> LiquorTree <span class="keyword">from</span> <span class="string">'liquor-tree'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'your-awesome-component'</span>,</span><br><span class="line">  components: &#123;</span><br><span class="line">    <span class="comment">// you can name tree as you wish</span></span><br><span class="line">    [LiquorTree.name]: LiquorTree</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>To registrate the library you can choose between 3 ways I mentioned before.<br>Okey, <code>LiquorTree</code> is installed. Let’s go use it</p>
+<p>To registrate the library you can choose between 3 ways I mentioned before.</p>
+<p><strong>When used directly in browser you are able to include <code>liquor-tree</code> via CND:</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/liquor-tree/dist/liquor-tree.umd.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h3><p>The component has only two props: <strong>data</strong> and <strong>options</strong>. More about props read <a href="https://vuejs.org/v2/guide/components.html#Passing-Data-with-Props" target="_blank" rel="noopener">VueJS documentation</a></p>
+<ul>
+<li>property <strong>options</strong> - This property defines tree behavior. See <a href="#Component-Options">Component Options</a></li>
+<li>property <strong>data</strong> - Array-like object that defines tree nodes</li>
+</ul>
+<p>Property <strong>data</strong> has its own structure for every node:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: Int,</span><br><span class="line">  <span class="string">"text"</span>: <span class="built_in">String</span>,</span><br><span class="line">  <span class="string">"data"</span>: <span class="built_in">Object</span>,</span><br><span class="line">  <span class="string">"children"</span>: <span class="built_in">Array</span>,</span><br><span class="line">  <span class="string">"state"</span>: <span class="built_in">Object</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>id</code>: By default if node didn’t have an id it will be generated randomly</li>
+<li><code>text</code>: Label for Node</li>
+<li><code>data</code>: Intermediate data for each node. It can be everything you want. This objects creates for every node and VueJS makes this property reactive.</li>
+<li><code>children</code>: List of children nodes.</li>
+<li><p><code>state</code>: Allows user to set Node’s state.</p>
+<p>By default Node has states: </p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  selected: <span class="literal">false</span>,</span><br><span class="line">  selectable: <span class="literal">true</span>,</span><br><span class="line">  checked: <span class="literal">false</span>,</span><br><span class="line">  expanded: <span class="literal">false</span>,</span><br><span class="line">  disabled: <span class="literal">false</span>,</span><br><span class="line">  visible: <span class="literal">true</span>,</span><br><span class="line">  indeterminate: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>It is not necessary to pass all the states for every Node. It will automatically merged with default states object</p>
+</li>
+</ul>
+<p>Initial <strong>data</strong> example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> treeData = [</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'Item 1'</span>, <span class="attr">state</span>: &#123; <span class="attr">visible</span>: <span class="literal">false</span> &#125; &#125;,</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'Item 2'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'Item 3'</span>, <span class="attr">state</span>: &#123; <span class="attr">selected</span>: <span class="literal">true</span> &#125; &#125;,</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'Item 4'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'Item 5'</span>, <span class="attr">children</span>: [</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">'Item 5.1'</span>, <span class="attr">state</span>: &#123; <span class="attr">disabled</span>: <span class="literal">true</span> &#125; &#125;,</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">'Item 5.2'</span>, <span class="attr">state</span>: &#123; <span class="attr">selectable</span>: <span class="literal">false</span> &#125; &#125;</span><br><span class="line">  ]&#125;</span><br><span class="line">  <span class="comment">// and so on ...</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <h3 id="Basic-Usage"><a href="#Basic-Usage" class="headerlink" title="Basic Usage"></a>Basic Usage</h3><h4 id="ES6-using-vue-loader"><a href="#ES6-using-vue-loader" class="headerlink" title="ES6 (using vue-loader)"></a>ES6 (using vue-loader)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;tree</span><br><span class="line">      :data=<span class="string">"treeData"</span></span><br><span class="line">    /&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'Vue'</span></span><br><span class="line">  <span class="keyword">import</span> LiquorTree <span class="keyword">from</span> <span class="string">'liquor-tree'</span></span><br><span class="line"></span><br><span class="line">  Vue.use(LiquorTree)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    name: <span class="string">'awesome-component'</span>,</span><br><span class="line">    data: <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">      treeData: [</span><br><span class="line">        &#123; <span class="attr">text</span>: <span class="string">'Item 1'</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">text</span>: <span class="string">'Item 2'</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">text</span>: <span class="string">'Item 3'</span>, <span class="attr">state</span>: &#123; <span class="attr">selected</span>: <span class="literal">true</span> &#125; &#125;,</span><br><span class="line">        &#123; <span class="attr">text</span>: <span class="string">'Item 4'</span> &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="If-you-are-using-CDN-that’s-all-you-need-to-build-your-first-app-I-mean-app-that-using-VueTree-library"><a href="#If-you-are-using-CDN-that’s-all-you-need-to-build-your-first-app-I-mean-app-that-using-VueTree-library" class="headerlink" title="If you are using CDN that’s all you need to build your first app (I mean app that using VueTree library)"></a>If you are using CDN that’s all you need to build your first app (I mean app that using <code>VueTree</code> library)</h4><p>In this way you no need to registrate the library as a component.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tree</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:data</span>=<span class="string">"treeData"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:options</span>=<span class="string">"treeOptions"</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">node:selected</span>=<span class="string">"onNodeSelected"</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- first import Vue --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/vue/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- import JavaScript --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/liquor-tree/dist/vue-tree.umd.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line"><span class="javascript">      data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="undefined">          treeData: [</span></span><br><span class="line"><span class="javascript">            <span class="comment">// see below the format of data</span></span></span><br><span class="line"><span class="undefined">          ],</span></span><br><span class="line"><span class="undefined">          treeOptions: &#123;</span></span><br><span class="line"><span class="javascript">            miltiple: <span class="literal">false</span></span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tree</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:data</span>=<span class="string">"treeData"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:options</span>=<span class="string">"treeOptions"</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">node:selected</span>=<span class="string">"onNodeSelected"</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- first import Vue --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/vue/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- import JavaScript --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/liquor-tree/dist/liquor-tree.umd.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line"><span class="javascript">      data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="undefined">          treeData: [</span></span><br><span class="line"><span class="javascript">            <span class="comment">// see below the format of data</span></span></span><br><span class="line"><span class="undefined">          ],</span></span><br><span class="line"><span class="undefined">          treeOptions: &#123;</span></span><br><span class="line"><span class="javascript">            miltiple: <span class="literal">false</span></span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="Guides"><a href="#Guides" class="headerlink" title="Guides"></a>Guides</h2><h3 id="Basic-Features"><a href="#Basic-Features" class="headerlink" title="Basic Features"></a>Basic Features</h3><p>This example demonstrates default behaviour of tree without any configurations. Each node from received data has its <strong>own states properties</strong> (<a href="#node-atata">view full list</a>)</p>
-<iframe width="100%" height="500" src="//jsfiddle.net/amsik/25bv7nh0/5/embedded/html,result/dark/" allowpaymentrequest="" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="500" src="//jsfiddle.net/amsik/25bv7nh0/embedded/html,result/dark/" allowpaymentrequest="" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 <p>You able to select multiple nodes with Ctrl key. The same behavior as we are used to ;)</p>
 <h3 id="Checkboxes"><a href="#Checkboxes" class="headerlink" title="Checkboxes"></a>Checkboxes</h3><p>It was a default mode. You can switch it to <code>checkbox</code> mode. To do it you have to add tree’s option:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tree</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:data</span>=<span class="string">"treeData"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:options</span>=<span class="string">"&#123; checkbox: true &#125;"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
-<iframe width="100%" height="500" src="//jsfiddle.net/amsik/ewcy3jee/3/embedded/html,result/dark/" allowpaymentrequest="" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="500" src="//jsfiddle.net/amsik/ewcy3jee/embedded/html,result/dark/" allowpaymentrequest="" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 <blockquote>
 <p>States of node like <strong>checked</strong> and <strong>selected</strong> are not interchangeable. They can be uses together.</p>
 </blockquote>
-<h3 id="Redefine-Structure"><a href="#Redefine-Structure" class="headerlink" title="Redefine Structure"></a>Redefine Structure</h3><p>Tree has its own structure for every node:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: Int,</span><br><span class="line">  <span class="string">"text"</span>: <span class="built_in">String</span>,</span><br><span class="line">  <span class="string">"state"</span>: <span class="built_in">Object</span>,</span><br><span class="line">  <span class="string">"data"</span>: <span class="built_in">Object</span>,</span><br><span class="line">  <span class="string">"children"</span>: <span class="built_in">Array</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>id</code>: By default if node didn’t have an id it will be generated randomly</li>
-<li><code>text</code>: Label for Node</li>
-<li><code>state</code>: Allows user to set Node’s state (disabled, checked, selected and so on)</li>
-<li><code>data</code>: Intermediate data for each node. It can be everything you want. This objects creates for every node and VueJS makes this property reactive. </li>
-<li><code>children</code>: List of children nodes.</li>
-</ul>
-<p>This formar is default for tree. By you can easily <strong>redefine</strong> this format. Yeah… Sometimes you don’t want to change your server-side code and you have very different format for tree. To do this you just need to send the object:</p>
+<h3 id="Redefine-Structure"><a href="#Redefine-Structure" class="headerlink" title="Redefine Structure"></a>Redefine Structure</h3><p>  This component has <code>strict</code> structure. But! You can easily <strong>redefine</strong> this format. Yeah… Sometimes you don’t want to change your server-side code and you have very different format for tree. To do this you just need to send the object:</p>
 <p>For instance you have data:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"> &#123; <span class="string">'SOME-AWESOME-PROPERTY-FOR-TEXT'</span>: <span class="string">'Item 1'</span> &#125;,</span><br><span class="line"> &#123; <span class="string">'SOME-AWESOME-PROPERTY-FOR-TEXT'</span>: <span class="string">'Item 2'</span> &#125;,</span><br><span class="line"> &#123; <span class="string">'SOME-AWESOME-PROPERTY-FOR-TEXT'</span>: <span class="string">'Item 3'</span>, <span class="string">'kids'</span>: [</span><br><span class="line">  &#123; <span class="string">'SOME-AWESOME-PROPERTY-FOR-TEXT'</span>: <span class="string">'Item 3.1'</span> &#125;,</span><br><span class="line">  &#123; <span class="string">'SOME-AWESOME-PROPERTY-FOR-TEXT'</span>: <span class="string">'Item 3.2'</span> &#125;</span><br><span class="line"> ]&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>You just need to add <code>propertyNames</code> options:</p>
+<p>You just need to add <code>propertyNames</code> options to <strong>Component Options</strong>:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">'text'</span>: <span class="string">'SOME-AWESOME-PROPERTY-FOR-TEXT'</span>,</span><br><span class="line"> <span class="string">'children'</span>: <span class="string">'kids'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Then your data will be transformed to readable tree format. Awesome!</p>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="Tree-Options"><a href="#Tree-Options" class="headerlink" title="Tree Options"></a>Tree Options</h3><table>
+<p>Then your data will be transformed to readable tree format. Awesome! See <a href="#Redefine-Structure-Example">example</a> below</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="JSON-Viewer"><a href="#JSON-Viewer" class="headerlink" title="JSON Viewer"></a>JSON Viewer</h3><p>I did this in 40 min … do not judge me strictly :)<br>In plans:</p>
+<ul>
+<li>online editor</li>
+<li>to reveal all the possibilities of slots</li>
+<li>process in real time</li>
+</ul>
+<iframe width="100%" height="500" src="//jsfiddle.net/amsik/mknwyqjc/embedded/html,css,result/dark/" allowpaymentrequest="" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><p>This example shows how to replace default content. It’s allows you to control a content in any way. It possible thanks to VueJS scoped slots.</p>
+<iframe width="100%" height="500" src="//jsfiddle.net/amsik/6jm2b1dq/embedded/html,result/dark/" allowpaymentrequest="" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<h3 id="Redefine-Structure-Example"><a href="#Redefine-Structure-Example" class="headerlink" title="Redefine Structure Example"></a>Redefine Structure Example</h3><p>For instance: we had a super-tree-component with its own structure (never mind, just for test). And we have a lot of dependencies to that component. This example shows how to apply data from server without a headache.</p>
+<p>In this example we have structure:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  MY_TEXT: <span class="string">'some text'</span>, <span class="attr">KIDS</span>: []</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>A library doesn’t know this format. But we can add <code>propertyNames</code> options and redefine structure. See example</p>
+<iframe width="100%" height="500" src="//jsfiddle.net/amsik/y7190jkd/embedded/html,result/dark/" allowpaymentrequest="" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="Component-Options"><a href="#Component-Options" class="headerlink" title="Component Options"></a>Component Options</h3><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -162,6 +247,12 @@
 <td>For <code>checkbox</code> mode only. Node will have <code>checked</code> state when user clicking either text or checkbox</td>
 </tr>
 <tr>
+<td><strong>autoCheckChildren</strong></td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:center">true</td>
+<td>For <code>checkbox</code> mode only. Children will have the same ‘checked’ state as their parent.</td>
+</tr>
+<tr>
 <td><strong>parentSelect</strong></td>
 <td style="text-align:center">Boolean</td>
 <td style="text-align:center">false</td>
@@ -181,6 +272,101 @@
 </tr>
 </tbody>
 </table>
+<h3 id="Tree-API"><a href="#Tree-API" class="headerlink" title="Tree API"></a>Tree API</h3><p>To have directly access to the Tree API you have to use <code>ref</code> property of component. See more <a href="https://vuejs.org/v2/guide/components.html#Child-Component-Refs" target="_blank" rel="noopener">Child-Component-Refs</a>.</p>
+<h4 id="Tree-find-criteria"><a href="#Tree-find-criteria" class="headerlink" title="Tree.find(criteria)"></a>Tree.find(criteria)</h4><ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li>{ Object | String } criteria</li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong></p>
+<ul>
+<li>Node</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>This method uses in every methods where you can find node by criteria. If <code>criteria</code> is passed as string it will be transformed like <code>{ text: criteria }</code>.<br>Examples:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.tree.find(<span class="string">'Node Text'</span>) <span class="comment">// It will find Node that has text 'Node Text'</span></span><br><span class="line"><span class="keyword">this</span>.$refs.tree.find(<span class="regexp">/Node Text/</span>) <span class="comment">// Using RegExp. It will find: Node Text ATAT, ATATA Node Text and so on...</span></span><br><span class="line"><span class="keyword">this</span>.$refs.tree.find(&#123;</span><br><span class="line">  text: <span class="regexp">/^Item 2/</span>,</span><br><span class="line">  state: &#123; <span class="attr">checked</span>: <span class="literal">true</span>, <span class="attr">selected</span>: <span class="literal">true</span> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Tree-selected"><a href="#Tree-selected" class="headerlink" title="Tree.selected()"></a>Tree.selected()</h4><ul>
+<li><p><strong>Returns:</strong></p>
+<ul>
+<li>The list of selected nodes (<code>multiple</code> component options)</li>
+<li>Node</li>
+<li>null</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>You can get access to <code>selected</code> nodes and do everything you want with NodeAPI</p>
+</li>
+</ul>
+<h4 id="Tree-checked"><a href="#Tree-checked" class="headerlink" title="Tree.checked()"></a>Tree.checked()</h4><ul>
+<li><p><strong>Returns:</strong></p>
+<ul>
+<li>The list of checked nodes</li>
+<li>null</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>You can get access to <code>checked</code> nodes and do everything you want with NodeAPI</p>
+</li>
+</ul>
+<h4 id="Tree-append-criteria-node"><a href="#Tree-append-criteria-node" class="headerlink" title="Tree.append(criteria, node)"></a>Tree.append(criteria, node)</h4><ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li>{ Object | Node } criteria  (see <code>find</code> method)</li>
+<li>{ Object | String } node</li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong></p>
+<ul>
+<li>Appended Node</li>
+<li>null</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>This method allows you to append (add to the end of the list) new Node to the Tree.<br>There are <strong>2 types of insertion:</strong></p>
+<ul>
+<li><p>Set criteria and new Node. It will try to find Node (using criteria) and append as children of this Node. Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.tree.append(</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'My super Text'</span> &#125;,              <span class="comment">// search criteria</span></span><br><span class="line">  <span class="string">'New CHILD Node for "My super Text"'</span>    <span class="comment">// this string will be converted to Node object with default state parameters</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Set only one argument (Node). In this way it will add new Node as <code>root</code> element. (Yeah, we are able to have more than one root element)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.tree.append(&#123;</span><br><span class="line">  text: <span class="string">'My NEW Node'</span>,</span><br><span class="line">  state: &#123; <span class="attr">selected</span>: <span class="literal">true</span> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Tree-prepend-criteria-node"><a href="#Tree-prepend-criteria-node" class="headerlink" title="Tree.prepend(criteria, node)"></a>Tree.prepend(criteria, node)</h4><ul>
+<li><p><strong>Usage:</strong></p>
+<p>This method has behaviour the same as <code>Tree.append</code>. But insertion place will be different (<strong>in the start</strong> of the list)</p>
+</li>
+</ul>
+<h4 id="Tree-before-criteria-node"><a href="#Tree-before-criteria-node" class="headerlink" title="Tree.before(criteria, node)"></a>Tree.before(criteria, node)</h4><ul>
+<li><p><strong>Usage:</strong></p>
+<p>This method has behaviour the same as <code>Tree.append</code>. But insertion place will be different (<strong>before</strong> founded node or the start of the list (as root))</p>
+</li>
+</ul>
+<h4 id="Tree-after-criteria-node"><a href="#Tree-after-criteria-node" class="headerlink" title="Tree.after(criteria, node)"></a>Tree.after(criteria, node)</h4><ul>
+<li><p><strong>Usage:</strong></p>
+<p>This method has behaviour the same as <code>Tree.append</code>. But insertion place will be different (<strong>after</strong> founded node or the end of the list (as root))</p>
+</li>
+</ul>
+<h4 id="Tree-remove-criteria"><a href="#Tree-remove-criteria" class="headerlink" title="Tree.remove(criteria)"></a>Tree.remove(criteria)</h4><ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li>{ Object | String } criteria (see <code>find</code> method)</li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong></p>
+<ul>
+<li>{ Node } removed node</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Remove Node by criteria.</p>
+</li>
+</ul>
 
     </div>
   </div>

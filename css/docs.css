@@ -18,7 +18,13 @@
   align-items: center; }
 
 .menu-nav {
-  padding: 20px 25px; }
+  padding: 20px 25px;
+  position: absolute;
+  top: 140px;
+  overflow-y: auto;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box; }
   .menu-nav span {
     color: #666666;
     font-size: 16px;
@@ -132,8 +138,15 @@ h2 {
   font-size: 25px;
   font-weight: 600;
   color: #333333;
-  margin-bottom: 20px;
-  margin-top: 30px; }
+  margin-top: 4em; }
+
+h2#Introduction {
+  margin: 0; }
+
+h3 {
+  padding-bottom: 0.7em;
+  margin: 45px 0 0.8em;
+  border-bottom: 1px solid #ddd; }
 
 p, ul li {
   color: #444444;
@@ -266,7 +279,11 @@ pre code, pre tt {
   color: #3e999f; }
 
 table {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 3em; }
+
+.highlight table {
+  margin-bottom: 0; }
 
 table th {
   text-align: left;
