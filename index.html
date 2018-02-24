@@ -76,6 +76,12 @@
                   
                 </li>
               
+                <li>
+                  <a href='#Keyboard-Navigation'>Keyboard Navigation</a>
+
+                  
+                </li>
+              
             </ul>
           
         </ul>
@@ -214,6 +220,12 @@
 <td style="text-align:center">-</td>
 <td>This options allows to redefine default tree’s structure. <a href="#Redefine-Structure">See example above</a></td>
 </tr>
+<tr>
+<td><strong>deletion</strong></td>
+<td style="text-align:center">Boolean    &#124; Function</td>
+<td style="text-align:center">false</td>
+<td>If <strong>keyboardNavigation</strong> is false - this property is ignoring. This property defined deletion behaviour. <a href="#Keyboard-Navigation">See example</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h3><p>The component has only two props: <strong>data</strong> and <strong>options</strong>. More about props read <a href="https://vuejs.org/v2/guide/components.html#Passing-Data-with-Props" target="_blank" rel="noopener">VueJS documentation</a></p>
@@ -256,6 +268,22 @@
 <p>You just need to add <code>propertyNames</code> options to <strong>Component Options</strong>:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">'text'</span>: <span class="string">'SOME-AWESOME-PROPERTY-FOR-TEXT'</span>,</span><br><span class="line"> <span class="string">'children'</span>: <span class="string">'kids'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Then your data will be transformed to readable tree format. Awesome! See <a href="#Redefine-Structure-Example">example</a> below</p>
+<h3 id="Keyboard-Navigation"><a href="#Keyboard-Navigation" class="headerlink" title="Keyboard Navigation"></a>Keyboard Navigation</h3><p>By default <strong>keyboardNavigation</strong> options is true. It allows user to navigate tree using keyboard. Navigation is implemented in the usual way (i.e Windows Navigation pane). Disabled Nodes are ignoring.</p>
+<p>Also you have abillity to define condition to remove Node. To do this, determine the <strong>deletion</strong> component option.<br>It receives Boolean object (default is false) or Function.</p>
+<ul>
+<li>If this property received a <code>true</code> it will remove selected Node</li>
+<li>If this property revieved a <code>function</code> it will remove Node <strong>IF</strong> the <code>function</code> return <code>true</code></li>
+</ul>
+<p>Ohh, too hard. See example:</p>
+<ul>
+<li>In this case Node will be removed</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;tree</span><br><span class="line">  :data=<span class="string">"treeData"</span></span><br><span class="line">  :options=<span class="string">"&#123; deletion: true &#125;"</span></span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>In this case if Node doesn’t has a children it will be removed</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;tree</span><br><span class="line">  :data=<span class="string">"treeData"</span></span><br><span class="line">  :options=<span class="string">"&#123; deletion: node =&gt; !node.hasChildren() &#125;"</span></span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>Try <a href="#Checkboxes">Checkboxes</a> to remove ONLY nodes that has <code>checked</code> state </p>
 <h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="JSON-Viewer"><a href="#JSON-Viewer" class="headerlink" title="JSON Viewer"></a>JSON Viewer</h3><p>I did this in 40 min … do not judge me strictly :)<br>In plans:</p>
 <ul>
 <li>online editor</li>
