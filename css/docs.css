@@ -158,6 +158,17 @@ a {
   a:hover {
     color: #0ca071; }
 
+h4[id^="Tree-"] {
+  margin-top: 50px; }
+  h4[id^="Tree-"]:before {
+    content: '# ';
+    color: #10CF93; }
+  h4[id^="Tree-"] a {
+    color: #333333;
+    text-decoration: none; }
+    h4[id^="Tree-"] a:hover {
+      text-decoration: underline; }
+
 code {
   color: #4D4D4C; }
 
