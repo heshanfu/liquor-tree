@@ -445,7 +445,99 @@
 <li><strong>Selection.collapse()</strong> - collapse nodes (if node has children)</li>
 <li><strong>Selection.remove()</strong> - remove nodes</li>
 </ul>
-<h3 id="Node-API"><a href="#Node-API" class="headerlink" title="Node API"></a>Node API</h3><p>In progress…</p>
+<h3 id="Node-API"><a href="#Node-API" class="headerlink" title="Node API"></a>Node API</h3><p>A Tree component consists of Nodes. Every Node is a VueJS component witch has <code>node</code> property linked to Node class.<br>It is desirable not to work with the VueJS Node component directly. You have API that returns Node (not VueJS compoenent).<br><strong>The tree mapping is based on the node states</strong>. Here are list of default states:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nodeStates = &#123;</span><br><span class="line">  selected: <span class="literal">false</span>,</span><br><span class="line">  selectable: <span class="literal">true</span>,</span><br><span class="line">  checked: <span class="literal">false</span>,</span><br><span class="line">  expanded: <span class="literal">false</span>,</span><br><span class="line">  disabled: <span class="literal">false</span>,</span><br><span class="line">  visible: <span class="literal">true</span>,</span><br><span class="line">  indeterminate: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>I hope that every state speaks of itself.</p>
+<p>To check state you can use:</p>
+<ul>
+<li>Node.selected()</li>
+<li>Node.checked()</li>
+<li>Node.hidden()</li>
+<li>Node.visible()</li>
+<li>Node.enabled()</li>
+<li>Node.disabled()</li>
+<li>Node.expanded()</li>
+<li>Node.collapsed()</li>
+<li>Node.indeterminate()</li>
+</ul>
+<p><strong>Node.indeterminate()</strong> - If Node has more than one checked Node it will return <code>true</code>. Otherwise it returns <code>false</code></p>
+<p>We have reverse state checks and <strong>this is done purely for convenience</strong>:</p>
+<ul>
+<li>Node.hidden() and Node.visible()</li>
+<li>Node.enabled() and Node.disabled()</li>
+<li>Node.collapsed() and Node.expanded()</li>
+</ul>
+<p>To change Node state:</p>
+<ul>
+<li>Node.select(extendList)</li>
+<li>Node.unselect()</li>
+<li>Node.check()</li>
+<li>Node.uncheck()</li>
+<li>Node.show()</li>
+<li>Node.hide()</li>
+<li>Node.expand()</li>
+<li>Node.disable()</li>
+<li>Node.collapse()</li>
+<li>Node.enable()</li>
+<li>Node.toggleCollapse()</li>
+<li>Node.toggleExpand()</li>
+</ul>
+<p>For instance Node is checked. When you call Node.check() <strong>it will not</strong> check Node again and not call ‘node:checked’ event. This condition applies to all of the above methods. You no need to do:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (!node.checked()) &#123;</span><br><span class="line">  node.check()</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>We have only 1 method which receive a parameter. It is a Node.select(extendList). It this case if tree option <code>multiple</code> is true it will be added to <code>selectionNodes</code> list and user will see more than one selected Nodes. Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// In our example we have one selected node. Using API we are able to find Node: </span></span><br><span class="line"><span class="keyword">let</span> someCoolNode = <span class="keyword">this</span>.$refs.tree.find(<span class="string">'Awesome NODE'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// It will select found Node and we will have 2 selected Nodes</span></span><br><span class="line">someCoolNode.select(<span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Adding-removing-finding-Nodes"><a href="#Adding-removing-finding-Nodes" class="headerlink" title="Adding, removing, finding Nodes"></a>Adding, removing, finding Nodes</h4><p>You probably know jQuery and how it works with DOM objects. It is very similar.</p>
+<ul>
+<li>Node.append(node) // Node.addChild() is alias</li>
+<li>Node.prepend(node)</li>
+<li>Node.after(node)</li>
+<li>Node.before(node)</li>
+</ul>
+<p>These methods add children or insert nodes before/after. </p>
+<p>Argument <code>node</code> can be:</p>
+<ul>
+<li>simple text - it will be Node name with default states</li>
+<li>structuraized node object ( See <a href="#Structure">Node Structure</a> )</li>
+<li>Node object</li>
+</ul>
+<p>Examples:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// In this example we DO NOT using Selection API...</span></span><br><span class="line"><span class="keyword">let</span> myAwesomeNode = <span class="keyword">this</span>.$refs.tree.find(&#123;<span class="attr">states</span>: &#123; <span class="attr">selected</span>: <span class="literal">true</span> &#125; &#125;)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (myAwesomeNode) &#123;</span><br><span class="line">  myAwesomeNode.append(<span class="string">'LAST Child of Awesome Node'</span>) <span class="comment">// to the end of the list</span></span><br><span class="line">  myAwesomeNode.prepend(<span class="string">'FIRST Child of Awesome Node'</span>) <span class="comment">// to the start of the list</span></span><br><span class="line"></span><br><span class="line">  myAwesomeNode.before(&#123;</span><br><span class="line">    text: <span class="string">'Heey!!'</span>,</span><br><span class="line">    state: &#123;</span><br><span class="line">      checked: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Node-properties"><a href="#Node-properties" class="headerlink" title="Node properties"></a>Node properties</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Node.parent</strong></td>
+<td>{ Object &#124; null }</td>
+<td>Link to parent ** For root node it will be <code>null</code></td>
+</tr>
+<tr>
+<td><strong>Node.text</strong></td>
+<td>String</td>
+<td>Node text. It is able to be as html</td>
+</tr>
+<tr>
+<td><strong>Node.depth</strong></td>
+<td>Int</td>
+<td>Node depth. Depth for root nodes is 0</td>
+</tr>
+<tr>
+<td><strong>Node.tree</strong></td>
+<td>Object</td>
+<td>Link to a Tree instance (not Vue component)</td>
+</tr>
+<tr>
+<td><strong>Node.vm</strong></td>
+<td>Object</td>
+<td>Link to a VueJS component</td>
+</tr>
+</tbody>
+</table>
 <h3 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h3><p>In progress…</p>
 
     </div>
