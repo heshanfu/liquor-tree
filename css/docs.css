@@ -35,8 +35,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
-    text-decoration: none;
-    padding: 6px 0; }
+    text-decoration: none; }
     .menu-nav a:hover {
       color: #333333; }
     .menu-nav a.active {
@@ -158,15 +157,19 @@ a {
   a:hover {
     color: #0ca071; }
 
-h4[id^="Tree-"] {
+h4[id^="Tree-"],
+h4[id^="Selection-"] {
   margin-top: 50px; }
-  h4[id^="Tree-"]:before {
+  h4[id^="Tree-"]:before,
+  h4[id^="Selection-"]:before {
     content: '# ';
     color: #10CF93; }
-  h4[id^="Tree-"] a {
+  h4[id^="Tree-"] a,
+  h4[id^="Selection-"] a {
     color: #333333;
     text-decoration: none; }
-    h4[id^="Tree-"] a:hover {
+    h4[id^="Tree-"] a:hover,
+    h4[id^="Selection-"] a:hover {
       text-decoration: underline; }
 
 code {

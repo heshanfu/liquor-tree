@@ -417,7 +417,34 @@
 <p>Remove Node by criteria.</p>
 </li>
 </ul>
-<h3 id="Selection-API"><a href="#Selection-API" class="headerlink" title="Selection API"></a>Selection API</h3><p>In progress…</p>
+<h3 id="Selection-API"><a href="#Selection-API" class="headerlink" title="Selection API"></a>Selection API</h3><p>This array-like object has all array methods (forEach, map and so on). Because it inherits <code>Array</code> object. This collection has very similar behaviour with jQuery. <code>All actions apply to all items in the collection.</code> I’m going to show one example in more details and other methods have similar logic.</p>
+<h4 id="Selection-select-extendList"><a href="#Selection-select-extendList" class="headerlink" title="Selection.select(extendList)"></a><a href="#Selection-select-extendList">Selection.select(extendList)</a></h4><ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{ Boolean } extendList</code> - in <code>multiple</code> mode it will add selected Node</li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong></p>
+<ul>
+<li><a href="#Selection-API">Selection</a></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>It calls method <code>select</code> for <code>all Nodes</code> in the collection. For instance:</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Let's find Nodes which text starts with 'Java' and it's not disabled</span></span><br><span class="line"><span class="keyword">let</span> selection = <span class="keyword">this</span>.$refs.tree.findAll(&#123; <span class="attr">text</span>: <span class="regexp">/^Java/</span>, <span class="attr">state</span>: &#123; <span class="attr">disabled</span>: <span class="literal">false</span> &#125; &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// or you can use (the second parametes is true):</span></span><br><span class="line"><span class="comment">// let selection = this.$refs.tree.find(&#123; text: /^Java/, state: &#123; disabled: false &#125; &#125;, true)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Here we want to select all nodes in our collection.</span></span><br><span class="line"><span class="comment">// For single mode (multiple: false) it will do for ALL nodes:</span></span><br><span class="line"><span class="comment">//  - unselect node</span></span><br><span class="line"><span class="comment">//  - select node</span></span><br><span class="line"><span class="comment">// For multiple mode it will select ALL nodes in the collection</span></span><br><span class="line">selection.select(<span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<p>I think I should not explain behaviour of all methods. I hope it clear how it works. </p>
+<p>Methods list:</p>
+<ul>
+<li><strong>Selection.select()</strong> - select all nodes</li>
+<li><strong>Selection.unselect()</strong> - unselect all nodes</li>
+<li><strong>Selection.check()</strong> - check all nodes (if <code>checkbox</code> mode)</li>
+<li><strong>Selection.uncheck()</strong> - uncheck all nodes (if <code>checkbox</code> mode) </li>
+<li><strong>Selection.expand()</strong> - expand nodes (if node has children)</li>
+<li><strong>Selection.collapse()</strong> - collapse nodes (if node has children)</li>
+<li><strong>Selection.remove()</strong> - remove nodes</li>
+</ul>
 <h3 id="Node-API"><a href="#Node-API" class="headerlink" title="Node API"></a>Node API</h3><p>In progress…</p>
 <h3 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h3><p>In progress…</p>
 
